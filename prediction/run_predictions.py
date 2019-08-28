@@ -5,6 +5,8 @@ import json
 import requests
 from datetime import datetime
 from sqlalchemy import create_engine
+import warnings
+warnings.filterwarnings("ignore")
 
 
 # initialise h2o
