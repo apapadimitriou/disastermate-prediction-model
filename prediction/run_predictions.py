@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import json
 import requests
-from tqdm import tqdm
 from datetime import datetime
 from sqlalchemy import create_engine
 
