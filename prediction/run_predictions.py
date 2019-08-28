@@ -60,7 +60,6 @@ for postcode in postcode_list:
     weather_data.append(weather_dict)
 
 # get postcode weather data in df and then convert to h2o frame
-
 overall_df = pd.DataFrame()
 
 for point in weather_data:
