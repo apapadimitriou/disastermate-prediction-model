@@ -100,12 +100,15 @@ prediction_df.rename(columns={"prediction": "bushfireProb",
 
 # convert fahrenheit to celsius
 prediction_df["airTemperature"] = prediction_df["airTemperature"].apply(lambda x: (x - 32) * 5.0 / 9.0)
+prediction_df["airTemperature"] = prediction_df["airTemperature"].astype("int64")
 
 # convert miles per hour to km per hour
 prediction_df["windSpeed"] = prediction_df["windSpeed"].apply(lambda x: x / 0.62137)
+prediction_df["windSpeed"] = prediction_df["windSpeed"].astype("int64")
 
 # convert humidity to percentage
 prediction_df["humidity"] = prediction_df["humidity"] * 100
+prediction_df["humidity"] = prediction_df["humidity"].astype("int64")
 
 
 # create bushfire risk and severity rating
