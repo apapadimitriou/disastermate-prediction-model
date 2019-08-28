@@ -29,7 +29,10 @@ postcode_list = []
 
 for index, row in vic_postcodes.iterrows():
     if np.isnan(row["lat"]):
-        continue
+        postcode_dict = dict()
+        postcode_dict["postcode"] = row["postcode"]
+        postcode_dict["coordinates"] = [-37.814, 144.9632]
+        postcode_list.append(postcode_dict)
     else:
         postcode_dict = dict()
         postcode_dict["postcode"] = row["postcode"]
