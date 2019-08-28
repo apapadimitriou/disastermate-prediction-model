@@ -152,7 +152,7 @@ try:
     h2o.cluster().shutdown()
 
     # send message to slack channel
-    error_message = "Bushfire Prediction Model Run"
+    error_message = "Bushfire Prediction Model Run Successfully"
     slackurl = os.environ["SLACK_HOOK"]
     slackpayload = {'text': error_message}
     response = requests.post(slackurl, data=json.dumps(slackpayload), headers={'Content-Type': 'application/json'})
