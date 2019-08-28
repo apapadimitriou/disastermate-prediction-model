@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import json
 import requests
+import os
 from datetime import datetime
 from sqlalchemy import create_engine
 import warnings
@@ -38,7 +39,7 @@ for index, row in vic_postcodes.iterrows():
 # get weather data for every postcode
 
 # set api key for dark sky weather data
-api_key = "1442ce5314be2c50b102b4a6541a84e3"
+api_key = os.environ["WEATHER_API_KEY"]
 
 # store weather data
 weather_data = []
@@ -138,7 +139,7 @@ prediction_df["lastUpdated"] = datetime.now()
 print("==============================================")
 print("Writing to Database")
 print("==============================================")
-engine = create_engine("mysql+pymysql://ccwarriors:Bushfire2019!@ccwarriors.ceec2r4offcw.ap-southeast-2.rds.amazonaws.com/disastermate")
+engine = create_engine(os.environ["CC_DB_PATH"])
 prediction_df.to_sql(con=engine, name="predictions", if_exists="replace", index=False)
 
 # close h2o cluster
