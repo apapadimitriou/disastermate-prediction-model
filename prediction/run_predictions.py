@@ -140,3 +140,6 @@ print("Writing to Database")
 print("==============================================")
 engine = create_engine("mysql+pymysql://ccwarriors:Bushfire2019!@ccwarriors.ceec2r4offcw.ap-southeast-2.rds.amazonaws.com/disastermate")
 prediction_df.to_sql(con=engine, name="predictions", if_exists="replace", index=False)
+
+# close h2o cluster
+h2o.cluster().shutdown()
