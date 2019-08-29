@@ -113,7 +113,6 @@ try:
     prediction_df["humidity"] = prediction_df["humidity"] * 100
     prediction_df["humidity"] = prediction_df["humidity"].astype("int64")
 
-
     # create bushfire risk and severity rating
     def bushfire_risk_rating(prob):
         if prob <= 0.33:
