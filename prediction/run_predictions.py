@@ -157,8 +157,7 @@ try:
     response = requests.post(slackurl, data=json.dumps(slackpayload), headers={'Content-Type': 'application/json'})
 except:
     # send error to slack channel
-    raise
-    #error_message = "Bushfire Prediction Model Failed"
-    #slackurl = os.environ["SLACK_HOOK"]
-    #slackpayload = {'text': error_message}
-    #response = requests.post(slackurl, data=json.dumps(slackpayload), headers={'Content-Type': 'application/json'})
+    error_message = "Bushfire Prediction Model Failed"
+    slackurl = os.environ["SLACK_HOOK"]
+    slackpayload = {'text': error_message}
+    response = requests.post(slackurl, data=json.dumps(slackpayload), headers={'Content-Type': 'application/json'})
