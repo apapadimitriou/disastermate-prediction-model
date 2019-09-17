@@ -10,9 +10,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 try:
-    # initialise h2o
-    h2o.init()
-
     # import postcode data
     print("==============================================")
     print("Importing Postcode Data")
@@ -134,9 +131,6 @@ try:
     print("==============================================")
     engine = create_engine(os.environ["CC_DB_PATH"])
     prediction_df.to_sql(con=engine, name="flood_predictions", if_exists="replace", index=False)
-
-    # close h2o cluster
-    h2o.cluster().shutdown()
 
     # send message to slack channel
     error_message = "Flood Prediction Model Run Successfully"
