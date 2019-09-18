@@ -1,4 +1,4 @@
-import h2o
+import traceback
 import pandas as pd
 import numpy as np
 import json
@@ -139,7 +139,8 @@ try:
     response = requests.post(slackurl, data=json.dumps(slackpayload), headers={'Content-Type': 'application/json'})
 except:
     # send error to slack channel
-    error_message = "Flood Prediction Model Failed"
+    # error_message = "Flood Prediction Model Failed"
+    error_message = traceback.format_exc()
     slackurl = os.environ["SLACK_HOOK"]
     slackpayload = {'text': error_message}
     response = requests.post(slackurl, data=json.dumps(slackpayload), headers={'Content-Type': 'application/json'})
