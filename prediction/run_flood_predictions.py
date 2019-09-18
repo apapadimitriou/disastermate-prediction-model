@@ -75,7 +75,7 @@ try:
 
     # get necessary columns and edit dataframe
     prediction_df = overall_df[["temperatureHigh", "pressure",
-                                "humidity", "windSpeed", "precipAccumulation", "postcode"]].copy()
+                                "humidity", "windSpeed", "precipIntensityMax", "postcode"]].copy()
     prediction_df.rename(columns={"prediction": "floodProb",
                                   "temperatureHigh": "airTemperature",
                                   "pressure": "airPressure",
