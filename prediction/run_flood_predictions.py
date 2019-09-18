@@ -80,7 +80,7 @@ try:
                                   "temperatureHigh": "airTemperature",
                                   "pressure": "airPressure",
                                   "humidity": "humidity",
-                                  "precipAccumulation": "rainfall"}, inplace=True)
+                                  "precipIntensityMax": "rainfall"}, inplace=True)
 
     # convert fahrenheit to celsius
     prediction_df["airTemperature"] = prediction_df["airTemperature"].apply(lambda x: (x - 32) * 5.0 / 9.0)
